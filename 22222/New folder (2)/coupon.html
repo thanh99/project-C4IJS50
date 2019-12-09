@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>mở coupon/khuyễn mại | haka Coffee</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css.css">
+    <link>
+</head>
+
+<body>
+        <h1 style="border-bottom: #ddd solid 1px;"> WELCOME TO ADMIN PAGE</h1>
+        <div class="row" style="margin-top: 3rem;">
+            <div class="col-sm-3">
+                <ul class="list-group list-group-flush bg-dark position-sticky sticky-top">
+                    <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-dark">
+                        <a href="admin.html" style="text-decoration: none; color: black">
+                            danh sách sản phẩm
+                        </a>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-dark">
+                        <a href="donhang.html" style="text-decoration: none; color: black">
+                            Đơn đặt hàng
+                        </a>
+                        <span class="badge badge-primary badge-pill"></span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-dark">
+                        <a href="coupon.html" style="text-decoration: none; color: black">
+                            Coupon/Khuyễn mai
+                        </a>
+                        <span class="badge badge-primary badge-pill"></span>
+                    </li>
+                </ul>
+            </div>
+        <!--hien thi coupon-->
+        <div class="container col-sm-9" style='border-left: #ddd solid 1px;'>
+            <div class="row float-right" style="display: block">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#coupon">
+                    Add new
+                </button>
+            </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Position</th>
+                        <th scope="col">Code of coupon</th>
+                        <th scope="col">Content of coupon</th>
+                        <th scope="col">Time begin</th>
+                        <th scope="col">Time end</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="list-coupon">
+                </tbody>
+            </table>
+        </div>
+        <!--coupon-->
+        <div class="modal fade" id="coupon" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">mở khuyến mại / coupon</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="addName">Mã coupon</label>
+                                <input type="text" class="form-control" id="codeOfCoupon" placeholder="Mã coupon"
+                                    onblur="validateCodeOfCoupon()">
+                                <span id="codeOfCoupon-error"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="addCost">Giá trị coupon</label>
+                                <input type="number" class="form-control" id="valueOfCoupon" placeholder="Cost"
+                                    onblur="validateValueOfCoupon()">
+                                <span id="valueOfCoupon-error"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="addTimeB">Thời gian bắt đầu</label>
+                                <input type="text" class="form-control" id="timeBOfCoupon" placeholder="bắt đầuvào"
+                                    onblur="validateTimeBOfCoupon()">
+                                <span id="timeBOfCoupon-error"></span>
+                                <!-- <input type="text" class="form-control" id="timeBOfCoupon" placeholder="áp dụng từ"
+                                    onblur="validateTimeBOfCoupon()">
+                                <span id="timeBOfCoupon-error"></span> -->
+                                     <!-- <div id="timeBOfCoupon">
+                                        <form id="form1" name="form1" method="post" action="">
+                                                <label>Năm:
+                                                    <select name="ddlNam" id="ddlNam" onchange="loadDay()">
+                                                    </select>
+                                                </label>
+                                                <label>Tháng:
+                                                    <select name="ddlThang" id="ddlThang" onchange="loadDay()">
+                                                    </select>
+                                                </label>
+                                                <label>Ngày:
+                                                    <select name="ddlNgay" id="ddlNgay">
+                                                    </select>
+                                                </label>
+                                                 <br/>
+                                                <input type="button" value="Click để chọn" onclick="loadYear(); loadMonth(); loadDay()"/>
+                                            </form>
+                                        </div> -->
+                            </div>
+                            <div class="form-group">
+                                <label for="addTimeE">Thời gian kết thúc</label>
+                                <input type="text" class="form-control" id="timeEOfCoupon" placeholder="kết thúc vào"
+                                    onblur="validateTimeEOfCoupon()">
+                                <span id="timeEOfCoupon-error"></span>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="checkCoupon()">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--alert delete-->
+        <div class="modal fade" id="Delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Confirm delete</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Do you want delete?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                        <button type="button" class="btn btn-primary" onclick="delCoupon()">Yes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="data.js"></script>
+        <script src="coupon.js"></script>
+</body>
+
+</html>

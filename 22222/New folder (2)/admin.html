@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Admin | Haka Coffee</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css.css">
+
+</head>
+
+<body>
+    <h1 style="border-bottom: #ddd solid 1px;"> WELCOME TO ADMIN PAGE</h1>
+    <div class="row" style="margin-top: 3rem;">
+        <div class="col-sm-3">
+            <ul class="list-group list-group-flush bg-dark position-sticky sticky-top">
+                <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-dark">
+                    <a href="admin.html" style="text-decoration: none; color: black">
+                        danh sách sản phẩm
+                    </a>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-dark">
+                    <a href="donhang.html" style="text-decoration: none; color: black">
+                        Đơn đặt hàng
+                    </a>
+                    <span class="badge badge-primary badge-pill"></span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-dark">
+                    <a href="coupon.html" style="text-decoration: none; color: black">
+                        Coupon/Khuyễn mai
+                    </a>
+                    <span class="badge badge-primary badge-pill"></span>
+                </li>
+            </ul>
+        </div>
+        <div class="col-sm-9" style="border-left: #ddd solid 1px;">
+            <!--bảng danh sách sản phẩm-->
+            <div class="container">
+                <div class="row float-right" style="display: block">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Add_new">
+                        Add new
+                    </button>
+                </div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Position</th>
+                            <th scope="col">Name of product</th>
+                            <th scope="col">Price of product</th>
+                            <th scope="col">Type of product</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="list-product">
+                    </tbody>
+                </table>
+            </div>
+
+            <!--alert add-->
+            <div class="modal fade" id="Add_new" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Add product</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="addImg">Image of product</label>
+                                    <input type="text" class="form-control" id="addImg" aria-describedby="emailHelp"
+                                        placeholder="Image" onblur="validateAll1()">
+                                    <span id="image-error"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="addName">Name of product</label>
+                                    <input type="text" class="form-control" id="addName" placeholder="Name"
+                                        onblur="validateAll2()">
+                                    <span id="name-error"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="addCost">Cost of product</label>
+                                    <input type="number" class="form-control" id="addCost" placeholder="Cost"
+                                        onblur="validateAll3()">
+                                    <span id="cost-error"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="addType">Type of product</label>
+                                    <select class="custom-select" id="addType">
+                                        <option value="cà phê phin">cà phê phin</option>
+                                        <option value="coffeeBean">coffeeBean</option>
+                                        <option value="trà">trà</option>
+                                        <option value="coldbrew">coldbrew</option>
+                                        <option value="iceDrink">iceDrink</option>
+                                        <option value="espresso">Espresso</option>
+                                    </select>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" onclick="checkAdd()">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--alert Edit-->
+            <div class="modal fade" id="Edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Edit</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="editImg">Image of product</label>
+                                    <input type="email" class="form-control" id="editImg" aria-describedby="emailHelp"
+                                        placeholder="Image" onblur="validateAll5()">
+                                    <span id="image1-error"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="editName">Name of product</label>
+                                    <input type="text" class="form-control" id="editName" placeholder="Name"
+                                        onblur="validateAll6()">
+                                    <span id="name1-error"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="editCost">Cost of product</label>
+                                    <input type="number" class="form-control" id="editCost" placeholder="cost"
+                                        onblur="validateAll7()">
+                                    <span id="cost1-error"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="editType">Type of product</label>
+                                    <select class="custom-select" id="editType">
+                                        <option value="cà phê phin">cà phê phin</option>
+                                        <option value="coffeeBean">coffeeBean</option>
+                                        <option value="trà">trà</option>
+                                        <option value="coldbrew">coldbrew</option>
+                                        <option value="iceDrink">iceDrink</option>
+                                        <option value="espresso">espresso</option>
+                                    </select>
+                                </div>
+                                <!-- <div class="form-group">
+                                    <label for="editSale">sale</label>
+                                    <input type="number" class="form-control" id="editSale"
+                                        placeholder="Sale" onblur="validateAll8()">
+                                        <span id="sale1-error"></span>
+                                </div> -->
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" onclick="checkEdit()">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--alert Delete-->
+            <div class="modal fade" id="Delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Confirm delete</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Do you want delete?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                            <button type="button" class="btn btn-primary" onclick="delProduct()">Yes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="data.js"></script>
+    <script src="admin.js"></script>
+
+</body>
+
+</html>

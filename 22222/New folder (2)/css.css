@@ -1,0 +1,127 @@
+.header{
+    
+}
+.li{
+    list-style-type: none;
+    
+}
+.bieu-tuong{
+    border-radius: 100px 100px 100px 100px;
+    height: 100px;
+    width: 100px;
+    margin-top: 10px
+}
+
+.footer-top {
+    background-color: #f0f0f0;
+    border-bottom: 3px solid #fff;
+    border-top: 3px solid #fff;
+    padding: 25px 0;
+    
+}
+body{
+    background: #f7f7f7;
+    font-family: 'Lato', sans-serif;
+}
+.language{
+    float: right;
+}
+.cost{
+    color: #EA8025;
+    font-size: 2rem;
+}
+
+  .story{
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+  }
+  .headofgroup{
+      margin-top: 3rem;
+      font-size:2rem;
+      color:#efb33a;
+      margin-bottom: 1.5rem;
+      border-bottom: #efb33a solid 2px;
+  }
+  .product{
+      background-image: url("./images/bgforproduct.jpg");
+      background-repeat: no-repeat;
+      background-size: auto;
+      padding-top: 30px;
+      padding-bottom: 20px;
+  }
+  .footer {
+    margin-bottom: 0;
+    margin-top: 3rem;
+}
+  .footer_title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    margin-top: 0;
+    font-family: 'Lato', sans-serif;
+    margin-bottom: 10px;
+}
+.footer_content{
+    color: #fff
+}
+.copy_right{
+    border-top: 1px solid #fff;  
+}
+.video{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.storyofcoffee_item{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-top: 1rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    padding-bottom: 1rem;
+    border-bottom: #ddd solid 1px;
+}
+.bg_blog{
+    background-color: #fff;
+}
+.menu-item-li{
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding-top: 2rem;
+    padding-left: 1rem;
+}
+.menu-item-a{
+    text-decoration: none; 
+    color:#efb33a;
+}
+
+.menu-board{
+    position: -webkit-sticky;
+    position: sticky; 
+    border: #ffffff solid 1px;
+    background-color: #ffffff;
+    top: 0;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.gio-hang{
+    float: right;
+    color: #efb33a;
+    background-color: white;
+    position: -webkit-sticky;
+    position: sticky; 
+    bottom: 20rem;
+}
+.shopping-card-frame{
+    margin: 0;
+    background-color: #ffffff;
+}
+.shopping-card-content{
+    padding: 20px;
+}
+.narbar-sticky{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}

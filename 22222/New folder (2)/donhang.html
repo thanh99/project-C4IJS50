@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quản lý đơn dặt hàng | Haka Coffee</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css.css">
+</head>
+
+<body>
+    <h1 style="border-bottom: #ddd solid 1px;"> WELCOME TO ADMIN PAGE</h1>
+    <div class="row" style="margin-top: 3rem;">
+        <div class="col-sm-3">
+            <ul class="list-group list-group-flush bg-dark position-sticky sticky-top">
+                <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-dark">
+                    <a href="admin.html" style="text-decoration: none; color: black">
+                        danh sách sản phẩm
+                    </a>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-dark">
+                    <a href="donhang.html" style="text-decoration: none; color: black">
+                        Đơn đặt hàng
+                    </a>
+                    <span class="badge badge-primary badge-pill"></span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-dark">
+                    <a href="coupon.html" style="text-decoration: none; color: black">
+                        Coupon/Khuyễn mai
+                    </a>
+                    <span class="badge badge-primary badge-pill"></span>
+                </li>
+            </ul>
+        </div>
+        <div class="col-sm-9">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Thông tin khách hàng</th>
+                        <th scope="col">Thông tin đơn hàng</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>
+                            <table class="table" id="customer">
+
+                            </table>
+                        </td>
+                        <td>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Tên sản phẩm</th>
+                                        <th scope="col">Số lượng</th>
+                                        <th scope="col">Đơn giá</th>
+                                        <th scope="col">Thành tiền</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="bill">
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="donhang.js"></script>
+</body>
+
+</html>
